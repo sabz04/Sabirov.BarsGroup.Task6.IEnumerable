@@ -9,7 +9,6 @@ namespace Sabirov.BarsGroup.Task6.IEnumerable.Models
     public class LocalFileLogger<T> : ILogger
     {
         public static string path = "./logs.txt";
-        
         private static void CreateFile(string msg)
         {
             File.AppendAllText(path, msg);
