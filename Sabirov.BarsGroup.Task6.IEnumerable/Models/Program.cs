@@ -24,6 +24,7 @@ List<Entity> entities = new List<Entity>() {
 
 var dict = GetEntites(entities);
 string ss = "";
+
 foreach (var item in dict)
 {
     ss += $"Key = {item.Key}";
@@ -42,7 +43,7 @@ Dictionary<int, List<Entity>> GetEntites(List<Entity> entities)
         .Select(y => y.OrderBy(f => f.Id)
         .First())
         .ToList();
-    entities.ForEach(x=>dict.Add(x.ParentId, entities
+    list.ForEach(x=>dict.Add(x.ParentId, entities
                     .Where(y => y.ParentId == x.ParentId)
                     .ToList()));
     return dict;
