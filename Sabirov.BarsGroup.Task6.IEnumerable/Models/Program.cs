@@ -35,18 +35,9 @@ Console.Write(ss);
 
 Dictionary<int, List<Entity>> GetEntites(List<Entity> entities)
 {
-    Dictionary<int, List<Entity>> dict
-        = new Dictionary<int, List<Entity>>();
-    
-    var list = entities
-        .GroupBy(x => x.ParentId)
-        .Select(y => y.OrderBy(f => f.Id)
-        .First())
-        .ToList();
-    list.ForEach(x=>dict.Add(x.ParentId, entities
-                    .Where(y => y.ParentId == x.ParentId)
-                    .ToList()));
-    return dict;
+ 
+    return entities
+        .GroupBy(x => x.ParentId).ToDictionary(x => x.Key, y => y.ToList()); 
 
 }
 public class Student{
