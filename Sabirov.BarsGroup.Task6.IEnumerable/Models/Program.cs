@@ -27,7 +27,7 @@ string ss = "";
 
 foreach (var item in dict)
 {
-    ss += $"Key = {item.Key}";
+    ss += $"Key = {item.Key} ";
     item.Value.ForEach(x => ss += $"Value = List {{Entity {{id = {x.Id}}}}}");
     ss += "\n";
 }
